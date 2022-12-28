@@ -1,0 +1,30 @@
+<br>
+<div class="card col-md-5">
+    <div class="card-body">
+        <form action="">
+            <div class="form-group">
+                <input type="text" name="nombre" [(ngModel)] = "libro.ISBNLibro" id="Nombre" placeholder="ISBN">
+            </div>
+            <div class="form-group">
+                <select name="miselect" [(ngModel)]="libro.idAutor">
+                    <option [value]="autor.idAutor" *ngFor="let autor of autores">{{autor.nombreAutor}}</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" name="tituloLibro" [(ngModel)] = "libro.tituloLibro" id="Apellido" placeholder="Titulo">
+            </div>
+            <div class="form-group">
+                <input type="text" name="valorPrestamoLibro" [(ngModel)] = "libro.valorPrestamoLibro" id="Apellido" placeholder="Valor de prestamo">
+            </div>
+        
+            <button class="btn btn-success btn-block" (click) = "updateLibro()">
+                Update
+            </button>
+            <button class="btn btn-success btn-block" (click) = "saveNewLibro()">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>
+<app-libro-list [autorSelected] = "libro" (outputFromChild) = "receiveChildData($event)"></app-libro-list>

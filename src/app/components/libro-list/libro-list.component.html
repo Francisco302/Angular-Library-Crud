@@ -1,0 +1,31 @@
+<br>
+<input type="text" name="" [(ngModel)] = "txtBusqueda" id="" placeholder="Ingrese nombre o apellido">
+<button class="btn btn-info"(click)="filtroLibros()">Buscar</button>
+
+<div class="table-responsive ">
+    <table class="table">
+        <caption>List of libros</caption>
+        <thead>
+            <tr>
+                <th scope="col">ISBNLibro</th>
+                <th scope="col">idAutor</th>
+                <th scope="col">tituloLibro</th>
+                <th scope="col">valorPrestamoLibro</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libros" >
+                <th scope="row">{{libro.ISBNLibro}}</th>
+                <td>{{libro.idAutor}}</td>
+                <td>{{libro.tituloLibro}}</td>
+                <td>{{libro.valorPrestamoLibro}}</td>
+                <td>
+                    <button class="btn btn-info"(click)="sendDataToParent(libro)">Seleccionar</button>
+                    <button class="btn btn-danger"  (click)="deleteLibro(libro.idLibro)">Eliminar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

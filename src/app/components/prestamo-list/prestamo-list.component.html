@@ -1,0 +1,29 @@
+
+<input type="text" name="" [(ngModel)] = "txtBusqueda" id="" placeholder="Ingrese codigo, fecha o descripcion">
+<button class="btn btn-info"(click)="filtroPrestamos()">Buscar</button>
+
+<div class="table-responsive ">
+    <table class="table">
+        <caption>List of users</caption>
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prestamo of prestamos" >
+                <th scope="row">{{prestamo.numeroPrestamo}}</th>
+                <td>{{prestamo.fechaPrestamo}}</td>
+                <td>{{prestamo.descripcionPrestamo}}</td>
+                <td>
+                    <button class="btn btn-info" (click)="sendDataToParent(prestamo)">Seleccionar</button>
+                    <button class="btn btn-danger"  (click)="deletePrestamo(prestamo.idPrestamo)">Eliminar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

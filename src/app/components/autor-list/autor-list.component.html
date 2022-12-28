@@ -1,0 +1,30 @@
+
+<br>
+<input type="text" name="" [(ngModel)] = "txtBusqueda" id="" placeholder="Ingrese nombre o apellido">
+<button class="btn btn-info"(click)="filtroAutores()">Buscar</button>
+
+<div class="table-responsive ">
+    <table class="table">
+        <caption>List of users</caption>
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let autor of autores" >
+                <th scope="row">{{autor.codigoAutor}}</th>
+                <td>{{autor.nombreAutor}}</td>
+                <td>{{autor.apellidoAutor}}</td>
+                <td>
+                    <button class="btn btn-info"(click)="sendDataToParent(autor)">Seleccionar</button>
+                    <button class="btn btn-danger"  (click)="deleteAutor(autor.idAutor)">Eliminar</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

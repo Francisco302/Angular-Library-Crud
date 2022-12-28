@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "http://apicsharp.somee.com",
+    "secure": false,
+    "loglevel": "debug"
+  }
+}

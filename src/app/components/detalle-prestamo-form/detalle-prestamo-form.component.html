@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-title">Detalle</div>
+    <div class="card-body">
+        <form action="">
+
+            <!--
+            <div class="form-group">
+                <input type="text" name="idLibro" [(ngModel)]="detallePrestamo.idLibro" id="Nombre"
+                    placeholder="Id libro" >
+            </div>
+-->
+            <select name="miselect" [(ngModel)]="detallePrestamo.idLibro">
+                <option [value]="libro.idLibro" *ngFor="let libro of libros">{{libro.tituloLibro}}</option>
+            </select>
+            <div class="form-group">
+                <input type="text" name="cantidadDetalleP" [(ngModel)]="detallePrestamo.cantidadDetalleP"
+                    id="descripcionPrestamo" placeholder="Cantidad">
+            </div>
+            <div class="form-group">
+                <input type="date" name="fechaPrestamo" [(ngModel)]="detallePrestamo.fechaEntregaDetalleP" id="Nombre"
+                    placeholder="Fecha Entrega" (ngModelChange)="detallePrestamo.fechaEntregaDetalleP = $event">
+            </div>
+
+            <button class="btn btn-success btn-block" (click)="agregarDetalle()">
+                Agregar / Actualizar
+            </button>
+
+        </form>
+
+        <div class="table-responsive ">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Libro</th>
+                        <th scope="col">Fecha Entrega</th>
+                        <th scope="col">Costo Libro</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let detalle of detallesPrestamo">
+                        <th scope="row">{{getTituloLibro(detalle.idLibro)}}</th>
+                        <td>{{detalle.fechaEntregaDetalleP}}</td>
+                        <td>{{detalle.cantidadDetalleP}}</td>
+                        <td>{{getCostoLibro(detalle.idLibro)}}</td>
+                        <td>{{getTotalIndividual(detalle.cantidadDetalleP,detalle.idLibro)}}</td>
+                        <td>
+                            <button class="btn btn-info" (click)="setDetalle(detalle)">Seleccionar</button>
+                            <button class="btn btn-danger" (click)="deleteDetalle(detalle.idLibro)">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>Total : {{total}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

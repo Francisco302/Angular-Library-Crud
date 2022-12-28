@@ -1,0 +1,21 @@
+<br>
+<div class="card col-md-5">
+    <div class="card-body">
+        <form action="">
+            <div class="form-group">
+                <input type="text" name="nombre" [(ngModel)] = "autor.nombreAutor" id="Nombre" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <input type="text" name="apellido" [(ngModel)] = "autor.apellidoAutor" id="Apellido" placeholder="Apellido">
+            </div>
+            
+            <button class="btn btn-success btn-block" (click) = "updateAutor()">
+                Update
+            </button>
+            <button class="btn btn-success btn-block" (click) = "saveNewAutor()">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>
+<app-autor-list [autorSelected] = "autor" (outputFromChild) = "receiveChildData($event)"></app-autor-list>
